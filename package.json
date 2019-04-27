@@ -1,0 +1,26 @@
+{
+  "name": "jobmatch",
+  "version": "0.0.1",
+  "description": "취업맞춤반 수업 패키지",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dudwn2329/jobmatch.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "dudwn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dudwn2329/jobmatch/issues"
+  },
+  "homepage": "https://github.com/dudwn2329/jobmatch#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "request": "^2.88.0"
+  }
+}
