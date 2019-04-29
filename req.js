@@ -1,4 +1,5 @@
 const request = require('request');
+
 const cheerio = require('cheerio');
 const iconv = require('iconv-lite');  //인코딩 변환도구
 const charset = require('charset');  //캐릭터셋 체크 도구

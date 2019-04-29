@@ -4,6 +4,7 @@ const path = require('path');
 const request = require('request');
 const cheerio = require('cheerio');
 const bodyParser = require('body-parser');  //여기
+
 const qs = require('querystring');
 const iconv = require('iconv-lite');  //인코딩 변환도구
 const charset = require('charset');  //캐릭터셋 체크 도구
@@ -18,16 +19,6 @@ const conn = mysql.createConnection({
 });
 
 conn.query("USE yy_30205");
-
-
-
-
-
-
-
-
-
-
 
 
 let app = express();
@@ -69,7 +60,9 @@ app.get('/search', function(req, res){
 
 app.post('/search', function(req, res){
     let word = req.body.word;
+
     word = qs.escape(word);
+
     let url = "https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=" + word;
     request(url, function(err, response, body){
         let list = [];
@@ -85,6 +78,7 @@ app.post('/search', function(req, res){
         res.render('search', {msg:'검색 결과', list:list});
     });
 });
+
 app.get('/lunch',function(req, res){
     res.render('lunch',{});
 });
@@ -163,6 +157,7 @@ app.get('/hangang',function(req, res){
         res.render('hangang', {temp:temp.text()});
     });
 });
+
 let server = http.createServer(app);
 server.listen(app.get('port'), function () {
     console.log(`Express 엔진이 ${app.get('port')}에서 실행중`);
