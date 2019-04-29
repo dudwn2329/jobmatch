@@ -144,6 +144,25 @@ app.post('/board/write',function(req,res){
 
     
 });
+// app.get('/hangang',function(req,res){
+//     res.render('/hangang',{});
+// });
+app.get('/hangang',function(req, res){
+    
+    let url = "https://www.wpws.kr/hangang/";
+    request(url, function(err, response, body){
+
+        $ = cheerio.load(body);
+
+        let temp = $("#temp");
+
+        let sql = "insert into hanriver values(now(),?)";
+        conn.query(sql, temp.text(), function(){
+
+        });
+        res.render('hangang', {temp:temp.text()});
+    });
+});
 let server = http.createServer(app);
 server.listen(app.get('port'), function () {
     console.log(`Express 엔진이 ${app.get('port')}에서 실행중`);
